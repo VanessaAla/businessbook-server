@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
+    "dev": "env DELAY=1000 npx nodemon .",
     "migrate": "npx sequelize-cli db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
