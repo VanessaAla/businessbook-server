@@ -1,7 +1,9 @@
 const express = require("express");
-const app = express();
+const loggerMiddleWare = require("morgan");
+const corsMiddleWare = require("cors");
+const { PORT } = require("./config/constants");
 
-const PORT = process.env.PORT || 4000;
+const app = express();
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
