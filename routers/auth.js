@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const { Router } = require("express");
 const { toJWT } = require("../auth/jwt");
 const authMiddleware = require("../auth/middleware");
-const User = require("../models/user");
+const User = require("../models").user;
 const { SALT_ROUNDS } = require("../config/constants");
 
 const router = new Router();
@@ -75,6 +75,7 @@ router.post("/signup", async (req, res) => {
 
     res.status(201).json({ token, ...newUser.dataValues });
   } catch (error) {
+    //console.log("error: ", error);
     if (error.name === "SequelizeUniqueConstraintError") {
       return res
         .status(400)
